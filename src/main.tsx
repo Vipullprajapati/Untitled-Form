@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { IconBrandGithub } from "@tabler/icons-react";
 import "./index.css";
 
 const appEl = document.querySelector("#app");
@@ -7,7 +8,7 @@ const root = createRoot(appEl);
 root.render(
   <React.StrictMode>
     {/* <h1>Hello World</h1> */}
-    <Duster />
+    <Duster /> <IconBrandGithub />
   </React.StrictMode>,
 );
 

@@ -22,3 +22,10 @@ Then add the following to your `package.json`:
   "plugins": ["prettier-plugin-tailwindcss"]
 }
 ```
+
+# tabler-icons
+
+```bash
+Installation
+```
+***pnpm install  @tabler/icons-react***
