@@ -29,3 +29,4 @@ Then add the following to your `package.json`:
 Installation
 ```
 ***pnpm install  @tabler/icons-react***
+pnpm i react-icon
