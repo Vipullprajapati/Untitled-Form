@@ -1,7 +1,7 @@
 import React from "react";
 import { RiSparkling2Fill } from "react-icons/ri";
-import { RiMagicLine } from "react-icons/ri";
-
+// import { RiMagicLine } from "react-icons/ri";
+import Intro from "@/components/Intro";
 
 function Form() {
   const services = [
@@ -15,16 +15,8 @@ function Form() {
 
   return (
     <>
-      {/* Intro */}
-      <h1 className="mb-3 text-3xl font-bold">
-        Got Ideas? <RiMagicLine className="inline-block" /> We've got <br /> the
-        skills. Let's team up.
-      </h1>
-      <p className="mb-6 text-xl">
-        Tell us more about yourself and what's on your mind.
-      </p>
+      <Intro />
 
-      {/* Inputs */}
       <form className="flex flex-col gap-1">
         <input
           type="text"
