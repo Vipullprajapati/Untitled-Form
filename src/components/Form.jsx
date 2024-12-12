@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { RiSparklingFill } from "react-icons/ri";
 import Intro from "@/components/Intro";
+import config from "@/utils/config.js";
 
 function Form() {
+  console.log(import.meta.env.VITE_USER_RESPONSE);
+
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -19,7 +22,7 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(selectedServices);
+    console.log(fullname, email, message, selectedServices);
   };
 
   // @desc This function is invoked by clicking on checkbox
@@ -37,11 +40,11 @@ function Form() {
   return (
     <>
       <Intro />
-      <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-1" action={config.submit}>
         {/* Inputs */}
         <input
           type="text"
-          name="fullname"
+          name={config.fullname}
           id="fullname"
           placeholder="Your name"
           className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
@@ -50,7 +53,7 @@ function Form() {
         />
         <input
           type="email"
-          name="email"
+          name={config.email}
           id="email"
           placeholder="you@company.com"
           className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
@@ -59,7 +62,7 @@ function Form() {
         />
         <input
           type="text"
-          name="message"
+          name={config.message}
           id="message"
           placeholder="Tell us a bit about your project..."
           className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
@@ -76,8 +79,7 @@ function Form() {
               <label key={idx} className="flex cursor-pointer gap-2">
                 <input
                   type="checkbox"
-                  name=""
-                  id=""
+                  name="entry.2143426756"
                   className="size-5"
                   onClick={(e) => handleCheckbox(service, e.target.checked)}
                 />
