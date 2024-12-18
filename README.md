@@ -28,5 +28,22 @@ Then add the following to your `package.json`:
 ```bash
 Installation
 ```
-***pnpm install  @tabler/icons-react***
+
+**_pnpm install @tabler/icons-react_**
 pnpm i react-icon
+
+**_Profaniswaer-emojityAPI_**
+
+```bash
+const res = await fetch('https://vector.profanity.dev', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message }),
+});
+```
+
+***React-hook-form***
+
+```bash
+npm install react-hook-form
+```
