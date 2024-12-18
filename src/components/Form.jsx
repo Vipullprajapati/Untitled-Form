@@ -38,23 +38,40 @@ function Form() {
   };
 
   const handleFormSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
-    const formData = new FormData();
-    formData.append("form-name", config.formName);
-    formData.append("email", data.email);
-    formData.append("fullname", data.fullname);
-    formData.append("message", data.message);
-    formData.append("entry.2143426756", data.selectedServices);
-    formData.append("page-url", window.location.href);
+    // const formData = new FormData();
+    // formData.append("form-name", config.formName);
+    // formData.append("email", data.email);
+    // formData.append("fullname", data.fullname);
+    // formData.append("message", data.message);
+    // formData.append("entry.2143426756", data.selectedServices);
+    // formData.append("page-url", window.location.href);
 
-    fetch(config.submit, {
+    // fetch(config.submit, {
+    //   method: "POST",
+    //   mode: "no-cors",
+    //   body: formData,
+    // }).then(() => {
+    //   console.log("Form submitted successfully");
+    // });
+    fetch("https://vector.profanity.dev", {
       method: "POST",
-      mode: "no-cors",
-      body: formData,
-    }).then(() => {
-      console.log("Form submitted successfully");
-    });
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: data.message,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.isprofanity) {
+          console.log(`Form submitted successfully ${data.flagefor}`);
+        } else {
+          console.log("Form not submitted");
+        }
+      });
   };
 
   return (
