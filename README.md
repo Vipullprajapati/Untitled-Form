@@ -25,15 +25,16 @@ Then add the following to your `package.json`:
 
 # tabler-icons
 
-```bash
-Installation
-```
+
+### Installation ###
 
 **_pnpm install @tabler/icons-react_**
-pnpm i react-icon
 
-**Profaniswaer-emojityAPI
-**
+```bash
+pnpm i react-icon
+```
+### Profanity API ###
+
 
 ```bash
 const res = await fetch('https://vector.profanity.dev', {
