@@ -25,15 +25,14 @@ Then add the following to your `package.json`:
 
 # tabler-icons
 
-```bash
-Installation
-```
+*** Installation ***
 
 **_pnpm install @tabler/icons-react_**
 pnpm i react-icon
 
-**Profaniswaer-emojityAPI
-**
+### Profanity API
+
+**_ https://www.profanity.dev/ _**
 
 ```bash
 const res = await fetch('https://vector.profanity.dev', {
@@ -43,7 +42,7 @@ const res = await fetch('https://vector.profanity.dev', {
 });
 ```
 
-**_React-hook-form_**
+ ### React Hook Form
 
 ```bash
 npm install react-hook-form
