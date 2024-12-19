@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import spamDetect from "@/utils/spamDetect";
-import { useState } from "react";
 import { RiSparklingFill } from "react-icons/ri";
 import Intro from "@/components/Intro";
 import configs from "@/utils/config.js";
@@ -27,23 +26,6 @@ function Form() {
       services: [],
     },
   });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(fullname, email, message, selectedServices);
-  // };
-
-  // @desc This function is invoked by clicking on checkbox
-  // @desc Logs the value
-  const handleCheckbox = (value, checked) => {
-    setSelectedServices((prevState) => {
-      // jab checkbox ki value click krne par dubara na aaye
-      const updatedServices = checked
-        ? [...prevState, value]
-        : prevState.filter((service) => service !== value);
-      return updatedServices;
-    });
-  };
 
   const handleFormSubmit = async (data) => {
     const spamCheck = await spamDetect(data.message);
@@ -74,6 +56,7 @@ function Form() {
         className="flex flex-col gap-1"
         onSubmit={handleSubmit(handleFormSubmit)}
       >
+
         {/* Inputs */}
         <input
           type="text"

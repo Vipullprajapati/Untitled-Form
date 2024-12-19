@@ -32,7 +32,8 @@ Installation
 **_pnpm install @tabler/icons-react_**
 pnpm i react-icon
 
-**_Profaniswaer-emojityAPI_**
+**Profaniswaer-emojityAPI
+**
 
 ```bash
 const res = await fetch('https://vector.profanity.dev', {
@@ -42,7 +43,7 @@ const res = await fetch('https://vector.profanity.dev', {
 });
 ```
 
-***React-hook-form***
+**_React-hook-form_**
 
 ```bash
 npm install react-hook-form
