@@ -1,10 +1,12 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="item-center mb-8 flex gap-2">
-      <img src="/public/favicon.png" alt="Favicon" className="h-10 w-10" />
-      <p className="text-2xl font-semibold">Untitled UI</p>
+    <header className="mb-8 flex items-center gap-2">
+      <Link to="/">
+        <img src="favicon.png" className="w-10" />
+      </Link>
+      <p className="text-lg font-semibold">Untitled UI</p>
     </header>
   );
 }

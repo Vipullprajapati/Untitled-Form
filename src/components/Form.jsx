@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import spamDetect from "@/utils/spamDetect";
 import { RiSparklingFill } from "react-icons/ri";
 import Intro from "@/components/Intro";
 import configs from "@/utils/config.js";
+import spamDetect from "@/utils/spamDetect";
 
 const services = [
   "Website Design",
@@ -14,6 +15,9 @@ const services = [
 ];
 
 function Form() {
+  const navigate = useNavigate();
+
+  // Form Hooks
   const {
     register,
     handleSubmit,
@@ -30,9 +34,12 @@ function Form() {
   const handleFormSubmit = async (data) => {
     const spamCheck = await spamDetect(data.message);
 
-    if (spamCheck.isProfanity) {
-      console.log("Shi se fill karo");
-    } else {
+    if (spamCheck.isProfanity) 
+     return navigate("/error", {
+      state: { badWord: spamCheck.flaggedFor },
+    });
+
+
       const formData = new FormData();
       formData.append(configs.fullname, data.fullname);
       formData.append(configs.email, data.email);
@@ -44,10 +51,13 @@ function Form() {
         mode: "no-cors",
         body: formData,
       }).then(() => {
-        console.log("Form submit hogya!");
+        navigate("submission", {
+          state: {
+            name: data.fullname,
+          },
+        });
       });
-    }
-  };
+    };
 
   return (
     <>
@@ -56,7 +66,6 @@ function Form() {
         className="flex flex-col gap-1"
         onSubmit={handleSubmit(handleFormSubmit)}
       >
-
         {/* Inputs */}
         <input
           type="text"
@@ -69,7 +78,7 @@ function Form() {
           })}
           id="fullname"
           placeholder="Your name"
-          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
+          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-100"
         />
         {errors.fullname && (
           <p className="text-red-500">{errors.fullname.message}</p>
@@ -86,7 +95,7 @@ function Form() {
           })}
           id="email"
           placeholder="you@company.com"
-          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
+          className="border-b border-stone-700 p-2 placeholder-gray-700  md:bg-lime-100"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
@@ -101,7 +110,7 @@ function Form() {
           })}
           id="message"
           placeholder="Tell us a bit about your project..."
-          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-400"
+          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700  md:bg-lime-100"
         />
         {errors.message && (
           <p className="text-red-500">{errors.message.message}</p>

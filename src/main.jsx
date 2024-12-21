@@ -1,22 +1,24 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-// import { IconBrandGithub } from "@tabler/icons-react";
-import "./index.css";
-import Home from "./pages/home";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "@/index.css";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import Submission from "./pages/Submission";
+import NotFound from "./pages/Notfound";
 
 const appEl = document.querySelector("#app");
 const root = createRoot(appEl);
+
 root.render(
   <React.StrictMode>
-    {/* <h1>Hello World</h1> */}
-    {/* // <Duster /> <IconBrandGithub /> */}
-    <Home />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="/submission" element={<Submission />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
 );
-
-
-
-// function Duster() {
-//   return <h1 className="mb-10 bg-red-500 text-5xl text-white">Hello World</h1>;
-// }

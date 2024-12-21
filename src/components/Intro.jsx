@@ -1,4 +1,3 @@
-
 import { RiMagicLine } from "react-icons/ri";
 
 function Intro() {
