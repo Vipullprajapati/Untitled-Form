@@ -34,30 +34,29 @@ function Form() {
   const handleFormSubmit = async (data) => {
     const spamCheck = await spamDetect(data.message);
 
-    if (spamCheck.isProfanity) 
-     return navigate("/error", {
-      state: { badWord: spamCheck.flaggedFor },
-    });
-
-
-      const formData = new FormData();
-      formData.append(configs.fullname, data.fullname);
-      formData.append(configs.email, data.email);
-      formData.append(configs.message, data.message);
-      formData.append(configs.services, data.services);
-
-      fetch(configs.submitUrl, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      }).then(() => {
-        navigate("submission", {
-          state: {
-            name: data.fullname,
-          },
-        });
+    if (spamCheck.isProfanity)
+      return navigate("/error", {
+        state: { badWord: spamCheck.flaggedFor },
       });
-    };
+
+    const formData = new FormData();
+    formData.append(configs.fullname, data.fullname);
+    formData.append(configs.email, data.email);
+    formData.append(configs.message, data.message);
+    formData.append(configs.services, data.services);
+
+    fetch(configs.submit, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    }).then(() => {
+      navigate("submission", {
+        state: {
+          name: data.fullname,
+        },
+      });
+    });
+  };
 
   return (
     <>
@@ -95,7 +94,7 @@ function Form() {
           })}
           id="email"
           placeholder="you@company.com"
-          className="border-b border-stone-700 p-2 placeholder-gray-700  md:bg-lime-100"
+          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-100"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
@@ -110,7 +109,7 @@ function Form() {
           })}
           id="message"
           placeholder="Tell us a bit about your project..."
-          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700  md:bg-lime-100"
+          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-lime-100"
         />
         {errors.message && (
           <p className="text-red-500">{errors.message.message}</p>

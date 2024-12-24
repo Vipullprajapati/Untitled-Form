@@ -40,7 +40,7 @@ function Submission() {
           <p className="mt-4 text-center text-gray-600">
             You can view your submission by clicking
             <a
-              href={configs.userResponseUrl}
+              href={configs.userResponse}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block transform rounded-full bg-gradient-to-r from-teal-400 to-blue-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-teal-300"
